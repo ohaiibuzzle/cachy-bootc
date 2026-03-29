@@ -1,2 +1,4 @@
 # cachy-bootc
-Bootable container for CachyOS
+Bootable container base image for CachyOS
+
+Mostly copied from Bootcrew
