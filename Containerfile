@@ -22,7 +22,7 @@ RUN grep "= */var" /etc/pacman.conf | sed "/= *\/var/s/.*=// ; s/ //" | xargs -n
 RUN pacman -Syu --noconfirm && \
     pacman -Sy --noconfirm base dracut linux-cachyos linux-firmware ostree btrfs-progs e2fsprogs xfsprogs dosfstools skopeo dbus dbus-glib glib2 ostree shadow && \
     pacman -S --clean --noconfirm && \
-    depmod -va
+    depmod -va $(ls /lib/modules)
 
 RUN --mount=type=tmpfs,dst=/tmp --mount=type=tmpfs,dst=/root \
     --mount=type=bind,from=ctx,source=/,target=/ctx \
